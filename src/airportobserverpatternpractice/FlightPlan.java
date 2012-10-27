@@ -1,12 +1,23 @@
 package airportobserverpatternpractice;
 
+import java.util.Objects;
+
 public class FlightPlan {
     private String planName;
     private String departingFrom;
     private String departingGate;
     private String arrvalAt;
     private String arrivalGate;
-
+    
+    public FlightPlan(String planName, String departingFrom, String departingGate,
+            String arrvalAt, String arrivalGate) {
+        this.planName = planName;
+        this.departingFrom = departingFrom;
+        this.departingGate = departingGate;
+        this.arrvalAt = arrvalAt;
+        this.arrivalGate = arrivalGate;
+    }
+    
     public String getDepartingFrom() {
         return departingFrom;
     }
@@ -34,6 +45,7 @@ public class FlightPlan {
         this.arrvalAt = arrvalAt;
     }
 
+
     public String getArrivalGate() {
         return arrivalGate;
     }
@@ -52,6 +64,34 @@ public class FlightPlan {
         this.planName = planName;
     }
 
-    
+        @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.planName);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final FlightPlan other = (FlightPlan) obj;
+        if (!Objects.equals(this.planName, other.planName)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "FlightPlan{" + "planName=" + planName + ", departingFrom=" + departingFrom + 
+                ", departingGate=" + departingGate + ", arrvalAt=" + arrvalAt + 
+                ", arrivalGate=" + arrivalGate + '}';
+    }
+
 
 }

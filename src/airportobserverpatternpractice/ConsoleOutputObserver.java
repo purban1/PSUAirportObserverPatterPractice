@@ -17,6 +17,8 @@ public class ConsoleOutputObserver implements Observer {
         Set<String> keys = data.keySet();
         for(String key : keys) {
             System.out.println("\t" + key + " = " + data.get(key).toString());
+//            System.out.println("\t" + data.get(key).toString());
+            System.out.println("");
         }
     }
     
